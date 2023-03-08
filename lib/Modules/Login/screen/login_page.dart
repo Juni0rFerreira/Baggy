@@ -7,7 +7,7 @@ import 'package:mercado/Modules/Login/screen/recover_password.dart';
 import 'package:mercado/Modules/Login/widgets/button_continue_login.dart';
 import 'package:mercado/Modules/Login/widgets/container_custom_login.dart';
 import 'package:mercado/Modules/Login/widgets/input_text.dart';
-import 'package:mercado/Modules/Login/widgets/input_text_obscure.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 class LoginPage extends GetView<LoginPageController> {
   const LoginPage({Key? key}) : super(key: key);
@@ -45,15 +45,24 @@ class LoginPage extends GetView<LoginPageController> {
                     padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                     child: Text("E-mail address"),
                   ),
-                  const InputText(obscure: false),
+                  InputText(
+                    controllerText: controller.textCpf,
+                    textInputFormatter: CpfInputFormatter(),
+                    hintText: '',
+                    textInputType: TextInputType.emailAddress,
+                    isPassword: false,
+                  ),
                   const Padding(
                     padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                     child: Text("Password"),
                   ),
-                  const InputTextObscure(
+                  InputText(
+                    function: () {
+                      controller.changeShowPassword();
+                    },
                     isPassword: true,
                     hintText: "*********",
-                    controllerText: null,
+                    controllerText: controller.textPassword,
                     textInputType: TextInputType.text,
                   ),
                   Container(
@@ -74,28 +83,34 @@ class LoginPage extends GetView<LoginPageController> {
                     width: 20,
                   ),
                   Container(
-                      height: 60,
-                      alignment: Alignment.centerLeft,
-                      decoration: const BoxDecoration(
-                          color: Color(0xFF1DB04F),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(56),
-                          )),
-                      child: SizedBox.expand(
-                          child: TextButton(
-                              onPressed: () {
-                                Get.to(const HomePage());
-                              },
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const <Widget>[
-                                    Text('LOG IN',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        )),
-                                  ])))),
+                    height: 60,
+                    alignment: Alignment.centerLeft,
+                    decoration: const BoxDecoration(
+                        color: Color(0xFF1DB04F),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(56),
+                        )),
+                    child: SizedBox.expand(
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(const HomePage());
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const <Widget>[
+                            Text(
+                              'LOG IN',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 20,
                     width: 20,

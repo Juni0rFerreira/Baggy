@@ -1,6 +1,8 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mercado/Controllers/login_controller.dart';
+import 'package:mercado/Modules/Login/screen/login_page.dart';
 import 'package:mercado/Modules/Login/widgets/input_text.dart';
 
 class RecoverPassword extends GetView<RecoverPasswordController> {
@@ -17,8 +19,8 @@ class RecoverPassword extends GetView<RecoverPasswordController> {
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Padding(
+                children: [
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.email_outlined,
@@ -26,7 +28,7 @@ class RecoverPassword extends GetView<RecoverPasswordController> {
                       color: Colors.green,
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(8),
                     child: Text(
                       'Email Address',
@@ -34,7 +36,43 @@ class RecoverPassword extends GetView<RecoverPasswordController> {
                     ),
                   ),
                   InputText(
-                    obscure: false,
+                    controllerText: null,
+                    hintText: '',
+                    textInputFormatter: CpfInputFormatter(),
+                    textInputType: TextInputType.emailAddress,
+                    isPassword: false,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 60,
+                    alignment: Alignment.centerLeft,
+                    decoration: const BoxDecoration(
+                        color: Color(0xFF1DB04F),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(56),
+                        )),
+                    child: SizedBox.expand(
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(const LoginPage());
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const <Widget>[
+                            Text(
+                              'TO SEND',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

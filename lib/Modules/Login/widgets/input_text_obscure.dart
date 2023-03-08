@@ -34,7 +34,7 @@ class InputTextObscure extends GetView<LoginPageController> {
                   contentPadding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 20.0),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   suffixIcon: isPassword
                       ? GestureDetector(
@@ -50,9 +50,9 @@ class InputTextObscure extends GetView<LoginPageController> {
                 obscureText: controller.showPassword)
             : TextFormField(
                 inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    textInputFormatter!
-                  ],
+                  FilteringTextInputFormatter.digitsOnly,
+                  textInputFormatter!
+                ],
                 keyboardType: textInputType,
                 controller: controllerText,
                 decoration: InputDecoration(
@@ -73,7 +73,8 @@ class InputTextObscure extends GetView<LoginPageController> {
                                 color: Colors.black),
                           )
                         : const SizedBox.shrink()),
-                obscureText: controller.showPassword);
+                obscureText: controller.showPassword,
+              );
       },
     );
   }

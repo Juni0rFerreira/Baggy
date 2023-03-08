@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mercado/Modules/Login/screen/login_page.dart';
+import 'package:mercado/Modules/Login/screen/wellcome_page.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> {
     Timer(const Duration(seconds: 3), () async {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
+        MaterialPageRoute(builder: (context) => const WellcomePage()),
       );
     });
   }
