@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,9 +38,9 @@ class RecoverPassword extends GetView<RecoverPasswordController> {
                     ),
                   ),
                   InputText(
-                    controllerText: null,
+                    controllerText: controller.text,
+                    textInputFormatter: null,
                     hintText: '',
-                    textInputFormatter: CpfInputFormatter(),
                     textInputType: TextInputType.emailAddress,
                     isPassword: false,
                   ),

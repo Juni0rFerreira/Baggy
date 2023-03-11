@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mercado/Controllers/login_controller.dart';
@@ -46,8 +48,8 @@ class LoginPage extends GetView<LoginPageController> {
                     child: Text("E-mail address"),
                   ),
                   InputText(
-                    controllerText: controller.textCpf,
-                    textInputFormatter: CpfInputFormatter(),
+                    controllerText: controller.text,
+                    textInputFormatter: null,
                     hintText: '',
                     textInputType: TextInputType.emailAddress,
                     isPassword: false,

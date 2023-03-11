@@ -7,6 +7,7 @@ import 'package:mercado/Modules/Themes/color_theme_global.dart';
 class LoginPageController extends GetxController {
   final colorTheme = ColorThemeController();
   final textCpf = TextEditingController();
+  final text = TextEditingController();
   late TextEditingController textPassword;
 
   bool showPassword = false;
@@ -27,9 +28,10 @@ class LoginPageController extends GetxController {
   }
 }
 
-class CreateAccountController extends GetxController {
+class HomePageController extends GetxController {
   final colorTheme = ColorThemeController();
   final textCpf = TextEditingController();
+  final text = TextEditingController();
   late TextEditingController textPassword;
 
   bool showPassword = false;
@@ -49,9 +51,29 @@ class CreateAccountController extends GetxController {
     update();
   }
 }
-
-class HomePageController extends GetxController {}
 
 class WellcomePageController extends GetxController {}
 
-class RecoverPasswordController extends GetxController {}
+class RecoverPasswordController extends GetxController {
+  final colorTheme = ColorThemeController();
+  final textCpf = TextEditingController();
+  final text = TextEditingController();
+  late TextEditingController textPassword;
+
+  bool showPassword = false;
+
+  @override
+  void onInit() {
+    textPassword = TextEditingController();
+    super.onInit();
+  }
+
+  changeShowPassword() {
+    if (showPassword) {
+      showPassword = false;
+    } else {
+      showPassword = true;
+    }
+    update();
+  }
+}

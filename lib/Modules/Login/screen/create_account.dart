@@ -1,6 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mercado/Controllers/login_controller.dart';
+import 'package:mercado/Controllers/create_account_controller.dart';
 import 'package:mercado/Modules/Login/screen/login_page.dart';
 import 'package:mercado/Modules/Login/screen/recover_password.dart';
 import 'package:mercado/Modules/Login/widgets/input_text.dart';
@@ -14,6 +16,27 @@ class CreateAccount extends GetView<CreateAccountController> {
     return GetBuilder<CreateAccountController>(
       builder: (_) {
         return Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text(
+              ' ',
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: null,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            backgroundColor: Colors.white,
+            leading: IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.black,
+              ),
+            ),
+          ),
           bottomSheet: Center(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(18, 0, 18, 0),
@@ -22,7 +45,7 @@ class CreateAccount extends GetView<CreateAccountController> {
                   const Center(
                     child: SizedBox(
                       width: 128,
-                      height: 128,
+                      height: 45,
                     ),
                   ),
                   const Center(
@@ -42,27 +65,30 @@ class CreateAccount extends GetView<CreateAccountController> {
                     height: 40,
                     width: 40,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                    child: Text("E-mail address"),
+                  const Text("E-mail address"),
+                  const SizedBox(
+                    height: 8,
                   ),
                   InputText(
-                    controllerText: controller.textCpf,
-                    textInputFormatter: CpfInputFormatter(),
+                    controllerText: controller.text,
+                    textInputFormatter: null,
                     hintText: '',
                     textInputType: TextInputType.emailAddress,
                     isPassword: false,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                    child: Text("Password"),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  const Text("Password"),
+                  const SizedBox(
+                    height: 8,
                   ),
                   InputText(
                     function: () {
                       controller.changeShowPassword();
                     },
                     isPassword: true,
-                    hintText: "*********",
+                    hintText: " ",
                     controllerText: controller.textPassword,
                     textInputType: TextInputType.text,
                   ),
@@ -82,22 +108,24 @@ class CreateAccount extends GetView<CreateAccountController> {
                           'Use 8 or more characters with a mix of letters, numbers & symbols.'),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                    child: Text("Confirm password"),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  const Text("Confirm password"),
+                  const SizedBox(
+                    height: 8,
                   ),
                   InputText(
                     function: () {
                       controller.changeShowPassword();
                     },
                     isPassword: true,
-                    hintText: "*********",
+                    hintText: " ",
                     controllerText: controller.textPassword,
                     textInputType: TextInputType.text,
                   ),
                   const SizedBox(
-                    height: 20,
-                    width: 20,
+                    height: 97,
                   ),
                   Container(
                     height: 60,
